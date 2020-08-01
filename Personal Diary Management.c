@@ -3,7 +3,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<sys/stat.h>
 #define VAL 10
 void add_record(void);
 void delete_record(void);
