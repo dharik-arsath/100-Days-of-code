@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Stack Implementation.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #8c8c8c; font-style: italic;}
+.s3 { color: #008080; font-weight: bold;}
+.s4 { color: #0037a6;}
+.ln { color: #adadad; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Stack Implementation.py</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">class </span><span class="s1">Node:</span>
+<a name="l2"><span class="ln">2    </span></a>    <span class="s0">def </span><span class="s1">__init__(self,data:int):</span>
+<a name="l3"><span class="ln">3    </span></a>        <span class="s1">self.data = data</span>
+<a name="l4"><span class="ln">4    </span></a>        <span class="s1">self.next = </span><span class="s0">None</span>
+<a name="l5"><span class="ln">5    </span></a>        <span class="s1">self.prev = </span><span class="s0">None</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">class </span><span class="s1">Stack:</span>
+<a name="l7"><span class="ln">7    </span></a>    <span class="s2">&quot;&quot;&quot; 
+<a name="l8"><span class="ln">8    </span></a>    Stack is a LastInFirstOut Data Structure which is used for deleting the element which comes very recently 
+<a name="l9"><span class="ln">9    </span></a>    It is used in places like out browser history where our old history goes down and down and our 
+<a name="l10"><span class="ln">10   </span></a>    new search history appears on top of all. It is implemented in a same way where elements are printed in 
+<a name="l11"><span class="ln">11   </span></a>    reverse order as Last added element will displayed at first and first added element will go at last 
+<a name="l12"><span class="ln">12   </span></a>    &quot;&quot;&quot;</span>
+<a name="l13"><span class="ln">13   </span></a>    <span class="s0">def </span><span class="s1">__init__(self,tail = </span><span class="s0">None</span><span class="s1">):</span>
+<a name="l14"><span class="ln">14   </span></a>        <span class="s1">self.tail = tail</span>
+<a name="l15"><span class="ln">15   </span></a>    <span class="s0">def </span><span class="s1">create(self):</span>
+<a name="l16"><span class="ln">16   </span></a>        <span class="s2">&quot;&quot;&quot; 
+<a name="l17"><span class="ln">17   </span></a>        Create a elements to make a stack of it. 
+<a name="l18"><span class="ln">18   </span></a>        &quot;&quot;&quot;</span>
+<a name="l19"><span class="ln">19   </span></a>        <span class="s1">tail = self.tail</span>
+<a name="l20"><span class="ln">20   </span></a>        <span class="s1">n = int(input(</span><span class="s3">&quot;Enter a number of node to insert into a stack: &quot;</span><span class="s1">))</span>
+<a name="l21"><span class="ln">21   </span></a>        <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(n):</span>
+<a name="l22"><span class="ln">22   </span></a>            <span class="s1">new_node = Node(int(input(</span><span class="s3">&quot;Enter a number to add into the stack: &quot;</span><span class="s1">)))</span>
+<a name="l23"><span class="ln">23   </span></a>            <span class="s0">if </span><span class="s1">tail != </span><span class="s0">None</span><span class="s1">:</span>
+<a name="l24"><span class="ln">24   </span></a>                <span class="s1">tail.next = new_node</span>
+<a name="l25"><span class="ln">25   </span></a>                <span class="s1">new_node.prev = tail</span>
+<a name="l26"><span class="ln">26   </span></a>                <span class="s1">tail = new_node</span>
+<a name="l27"><span class="ln">27   </span></a>                <span class="s1">self.tail = tail</span>
+<a name="l28"><span class="ln">28   </span></a>            <span class="s0">else</span><span class="s1">:</span>
+<a name="l29"><span class="ln">29   </span></a>                <span class="s1">tail = new_node</span>
+<a name="l30"><span class="ln">30   </span></a>                <span class="s1">self.tail = new_node</span>
+<a name="l31"><span class="ln">31   </span></a>
+<a name="l32"><span class="ln">32   </span></a>    <span class="s0">def </span><span class="s1">popitem(self):</span>
+<a name="l33"><span class="ln">33   </span></a>        <span class="s2">&quot;&quot;&quot; 
+<a name="l34"><span class="ln">34   </span></a>        As per the principle of Stack DataStructure we have removed the recently added element and 
+<a name="l35"><span class="ln">35   </span></a>        printed in reverse order so that last added element visible at first and first added element 
+<a name="l36"><span class="ln">36   </span></a>        goes at last 
+<a name="l37"><span class="ln">37   </span></a>        &quot;&quot;&quot;</span>
+<a name="l38"><span class="ln">38   </span></a>        <span class="s1">tail = self.tail</span>
+<a name="l39"><span class="ln">39   </span></a>        <span class="s1">print(</span><span class="s3">f&quot;The Deleted Element is </span><span class="s4">{</span><span class="s1">tail.data</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+<a name="l40"><span class="ln">40   </span></a>        <span class="s1">tail = tail.prev</span>
+<a name="l41"><span class="ln">41   </span></a>        <span class="s1">tail.next = </span><span class="s0">None</span>
+<a name="l42"><span class="ln">42   </span></a>        <span class="s1">self.tail = tail</span>
+<a name="l43"><span class="ln">43   </span></a>        <span class="s1">self.backward_print()</span>
+<a name="l44"><span class="ln">44   </span></a>
+<a name="l45"><span class="ln">45   </span></a>    <span class="s0">def </span><span class="s1">backward_print(self):</span>
+<a name="l46"><span class="ln">46   </span></a>        <span class="s1">print(</span><span class="s3">&quot;The elements is being printed based on new_comers:   &quot;</span><span class="s1">,end=</span><span class="s3">&quot;&quot;</span><span class="s1">)</span>
+<a name="l47"><span class="ln">47   </span></a>        <span class="s1">tail = self.tail</span>
+<a name="l48"><span class="ln">48   </span></a>        <span class="s0">while</span><span class="s1">(tail!= </span><span class="s0">None</span><span class="s1">):</span>
+<a name="l49"><span class="ln">49   </span></a>            <span class="s1">print(tail.data,end=</span><span class="s3">' '</span><span class="s1">)</span>
+<a name="l50"><span class="ln">50   </span></a>            <span class="s1">tail = tail.prev</span>
+<a name="l51"><span class="ln">51   </span></a>        <span class="s1">print(</span><span class="s3">'</span><span class="s4">\n</span><span class="s3">'</span><span class="s1">)</span>
+<a name="l52"><span class="ln">52   </span></a>
+<a name="l53"><span class="ln">53   </span></a><span class="s2"># Let's Create an object named my_stack</span>
+<a name="l54"><span class="ln">54   </span></a><span class="s1">stack = Stack()</span>
+<a name="l55"><span class="ln">55   </span></a><span class="s2"># Calling the methods in my object</span>
+<a name="l56"><span class="ln">56   </span></a><span class="s1">stack.create()</span>
+<a name="l57"><span class="ln">57   </span></a><span class="s1">stack.popitem()</span>
+<a name="l58"><span class="ln">58   </span></a></pre>
+</body>
+</html>
