@@ -10,9 +10,9 @@ class Stack:
     new search history appears on top of all. It is implemented in a same way where elements are stored in
     reverse order as Last added element will placed at first and first added element will go at last
     """
-    def __init__(self,head = None,tail = None):
+    def __init__(self,head = None):
         self.head = head
-        self.tail = tail
+        
     def create(self):
         """
         Create a elements to make a stack of it.
